@@ -1,0 +1,27 @@
+{% extends "core/base.html" %}
+
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+
+    <h1>WELCOME TO STUDENT TALENT MENTORING INITIATIVE FOUNDATION (STACMINIT FOUNDATION)</h1>
+    <h2>FIND YOUR TALENT AND MAKE IT COME THROUGH!!!</h2>
+
+    <div class="row">
+        {% for product in products %}
+        <div class="col">
+             <div class="card" style="width: 12rem; margin-top: 50px;">
+            <img src="{{ product.image.url }}" class="card-img-top" alt="..."width="100" height="100" style="border: 5px solid green;">
+                <div class="card-body">
+                <h5 class="card-title">{{ product.name }}</h5>
+                <p class="card-text">${{ product.price }}</p>
+                <a href="{% url 'core:detail' product.pk %}" class="btn btn-primary">Detail</a>
+
+              </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+{% endblock content %}
